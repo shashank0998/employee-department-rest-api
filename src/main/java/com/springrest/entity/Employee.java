@@ -25,7 +25,7 @@ public class Employee
 	String name;
 	
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER,orphanRemoval=true)
-	@JoinColumn
+	@JoinColumn(name="empId")
 	@Autowired
 	List<Department> department;
 	

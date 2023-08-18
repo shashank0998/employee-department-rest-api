@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springrest.entity.Department;
@@ -18,7 +19,7 @@ public class EmployeeController
 	EmployeeService empService;
 	
 	@PostMapping("/employees")
-	public String saveEmployee(Employee emp)
+	public String saveEmployee(@RequestBody Employee emp)
 	{
 		if(empService.saveEmployee(emp))
 			return "Employee save successfully";
@@ -32,7 +33,7 @@ public class EmployeeController
 		return empService.getEmployee();
 	}
 	
-	@GetMapping("/employee/{id}")
+	@GetMapping("/employees/{id}")
 	public Employee getEmployee(int id)
 	{
 		return empService.getEmployee(id);
